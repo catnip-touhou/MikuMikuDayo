@@ -17,10 +17,7 @@ AVIファイルへの出力ができます（透過AVIには対応していま�
   
   
 このツールでの作例は以下の動画を見ていただけますと幸いです  
-　http://nico.ms/smXXXXXX  
-　http://nico.ms/smXXXXXX  
-　http://nico.ms/smXXXXXX  
-  
+　http://nico.ms/sm43900055  
   
 以下、サンドマン氏のReadMeを引用しつつツールの説明等を記載していきます  
   
