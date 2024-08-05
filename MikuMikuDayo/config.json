@@ -1,0 +1,47 @@
+{
+	"vmd_codepage":932,
+	"charactor_model":"sample/ひこうき.pmx",
+	"charactor_vmd":"sample/ひこうき.vmd",
+	"stage_model":"sample/座標軸.pmx",
+	"stage_vmd":"sample/座標軸.vmd",
+	"camera_vmd":"sample/デフォルトカメラ.vmd", 
+	"skybox":"sample/lebombo_2k.hdr",
+	"aperture":"sample/aperture.png",
+
+	"default_material": { "autoNormal":1.8, "IOR":[1,0], "roughness":[0.5,0.5], "light":0.2 },
+	"default_material_stage": { "autoNormal":0.2, "IOR":[1,0], "roughness":[0.1,0.1], "light":0.2 },
+
+	"material": [
+		{ "name":"metal", "category":"metal", "roughness":[0,0], "light":0.05 },
+		{ "name":"skin", "category":"subsurface", "cat": [1,0.2,0.1, 0.03], "roughness": [0.3,0.3], "IOR": [1.33,0], "light":0.3 },
+		{ "name":"face", "category":"subsurface", "cat": [1,0.2,0.1, 0.03], "roughness": [0.3,0.3], "IOR": [1.33,0], "light":0.5 },
+		{ "name":"hair", "autoNormal":1, "roughness":[0.5,0.1], "light":0.3 },
+		{ "name":"glass", "category":"glass", "roughness":[0,0], "IOR":[2.2,85000], "light":0.05 },
+		{ "name":"eye", "emission":[0.18,0.18,0.18], "IOR":[1,0], "roughness": [0.3,0.3], "light":0.3 },
+		{ "name":"eye_h", "emission":[0.38,0.38,0.38], "IOR":[1,0], "light":1.1 },
+		{ "name":"cloth", "autoNormal":1.8, "IOR":[1,0], "light":0.2 },
+		{ "name":"leather", "autoNormal":1.8, "IOR":[1,0], "roughness":[0.9,0.9], "light":0.2 },
+		{ "name":"light", "light":250 },
+		{ "name":"light_half", "light":70 },
+		{ "name":"beam", "light":2500000, "lightHotspot":1, "lightFalloff":1 }
+	],
+
+	"rule": [
+		{ "keyword":["金","メタル","metal"], "material":"metal" },
+		{ "keyword":["肌","skin"], "material":"skin" },
+		{ "keyword":["顔","face"], "material":"face" },
+		{ "keyword":["髪","hair"], "material":"hair" },
+		{ "keyword":["ガラス","氷","glass","ice"], "material":"glass" },
+		{ "keyword":["白目"], "material":"eye" },
+		{ "keyword":["瞳"], "material":"eye_h" },
+		{ "keyword":["ハイライト"], "material":"eye_h" },
+		{ "keyword":["エプロン"], "material":"cloth" },
+		{ "keyword":["扇"], "material":"cloth" },
+		{ "keyword":["袖"], "material":"cloth" },
+		{ "keyword":["雪洞"], "material":"cloth" },
+		{ "keyword":["ブーツ"], "material":"leather" },
+		{ "keyword":["灯","light"], "material":"light" },
+		{ "keyword":["AL","AL"], "material":"light_half" },
+		{ "keyword":["ビーム","beam"], "material":"beam" }
+	]
+}
