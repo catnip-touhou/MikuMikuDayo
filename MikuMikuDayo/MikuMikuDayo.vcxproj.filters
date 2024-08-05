@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\src">
+      <UniqueIdentifier>{f34656be-a9a5-4884-a9f4-88e47cd1b1af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\hlsl">
+      <UniqueIdentifier>{5d140fb4-65fd-476a-9053-a66c3ab03188}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\lib">
+      <UniqueIdentifier>{08573ce9-9e5f-4465-86c0-6634155fcbc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\lib">
+      <UniqueIdentifier>{d6b4c694-bfdb-42f8-b512-a5c1d6cabcab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\lib\imgui">
+      <UniqueIdentifier>{32644e83-49ce-4cf4-ac32-433443e9902b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\lib\imgui">
+      <UniqueIdentifier>{aee6823c-ff3e-44db-adec-2ccf2b32725c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\src">
+      <UniqueIdentifier>{577aebea-52c3-4f7d-b017-03d1e0319406}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\lib\bullet3">
+      <UniqueIdentifier>{445a5856-616e-48f5-8900-5f07036c8216}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\lib\OpenCV2">
+      <UniqueIdentifier>{edff8ae5-d703-471e-bc32-5fe148644159}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\lib\bullet3">
+      <UniqueIdentifier>{5abf80fc-cbc1-4dde-89db-d960291435af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\lib\DirectXTex">
+      <UniqueIdentifier>{c6bb2bb1-98e6-4cdc-b859-28ef782709a1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\dayo.cpp">
+      <Filter>ソース ファイル\src</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\PMXLoader.ixx">
+      <Filter>ヘッダー ファイル\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\YRZ.ixx">
+      <Filter>ヘッダー ファイル\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\SimpleMath.cpp">
+      <Filter>ソース ファイル\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\SaveAsPNG.cpp">
+      <Filter>ソース ファイル\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\GdiCapture.cpp">
+      <Filter>ソース ファイル\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\AVIFileWriter.cpp">
+      <Filter>ソース ファイル\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\AVISettingWindow.cpp">
+      <Filter>ソース ファイル\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\EnvSettingWindow.cpp">
+      <Filter>ソース ファイル\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\MotionSettingWindow.cpp">
+      <Filter>ソース ファイル\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\WindowSettingWindow.cpp">
+      <Filter>ソース ファイル\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dayoWorkspace.cpp">
+      <Filter>ソース ファイル\src</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui\imgui.cpp">
+      <Filter>ソース ファイル\lib\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui\imgui_demo.cpp">
+      <Filter>ソース ファイル\lib\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui\imgui_draw.cpp">
+      <Filter>ソース ファイル\lib\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui\imgui_impl_dx12.cpp">
+      <Filter>ソース ファイル\lib\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui\imgui_impl_win32.cpp">
+      <Filter>ソース ファイル\lib\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui\imgui_tables.cpp">
+      <Filter>ソース ファイル\lib\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui\imgui_widgets.cpp">
+      <Filter>ソース ファイル\lib\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\bullet3\src\btBulletCollisionAll.cpp">
+      <Filter>ソース ファイル\lib\bullet3</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\bullet3\src\btBulletDynamicsAll.cpp">
+      <Filter>ソース ファイル\lib\bullet3</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\bullet3\src\btLinearMathAll.cpp">
+      <Filter>ソース ファイル\lib\bullet3</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\SimpleMath.inl">
+      <Filter>ヘッダー ファイル\lib</Filter>
+    </None>
+    <None Include="lib\bullet3\src\btBulletCollisionCommon.h">
+      <Filter>ヘッダー ファイル\lib\bullet3</Filter>
+    </None>
+    <None Include="lib\bullet3\src\btBulletDynamicsCommon.h">
+      <Filter>ヘッダー ファイル\lib\bullet3</Filter>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lib\SimpleMath.h">
+      <Filter>ヘッダー ファイル\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\d3dx12.h">
+      <Filter>ヘッダー ファイル\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\SaveAsPNG.h">
+      <Filter>ヘッダー ファイル\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\GdiCapture.h">
+      <Filter>ヘッダー ファイル\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stb_image_write.h">
+      <Filter>ヘッダー ファイル\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\AVIFileWriter.h">
+      <Filter>ヘッダー ファイル\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\AVISettingWindow.h">
+      <Filter>ヘッダー ファイル\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\EnvSettingWindow.h">
+      <Filter>ヘッダー ファイル\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\opencv\include\opencv2\opencv.hpp">
+      <Filter>ヘッダー ファイル\lib\OpenCV2</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\MotionSettingWindow.h">
+      <Filter>ヘッダー ファイル\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\Typedef.h">
+      <Filter>ヘッダー ファイル\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\WindowSettingWindow.h">
+      <Filter>ヘッダー ファイル\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dayoWorkspace.h">
+      <Filter>ヘッダー ファイル\src</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\DirectXTex\DirectXTex.h">
+      <Filter>ヘッダー ファイル\lib\DirectXTex</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imconfig.h">
+      <Filter>ヘッダー ファイル\lib\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imgui.h">
+      <Filter>ヘッダー ファイル\lib\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imgui_impl_dx12.h">
+      <Filter>ヘッダー ファイル\lib\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imgui_impl_win32.h">
+      <Filter>ヘッダー ファイル\lib\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imgui_internal.h">
+      <Filter>ヘッダー ファイル\lib\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imstb_rectpack.h">
+      <Filter>ヘッダー ファイル\lib\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imstb_textedit.h">
+      <Filter>ヘッダー ファイル\lib\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imstb_truetype.h">
+      <Filter>ヘッダー ファイル\lib\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\inicpp.h">
+      <Filter>ヘッダー ファイル\lib</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MikuMikuDayo.rc">
+      <Filter>リソース ファイル</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="MikuMikuDayo.ico">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
