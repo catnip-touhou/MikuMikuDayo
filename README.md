@@ -1,6 +1,7 @@
 # MikuMikuDayo  
 
 ![0](https://github.com/pennennennennennenem/MikuMikuDayo/assets/56704844/4900961c-f1a2-4fe2-978d-4e57b4b2a8b0)
+![1](https://github.com/user-attachments/assets/2fb3e971-33d5-4870-8e7c-81f51a81858a)
 
 ## はじめに
 MikuMikuDayoは、サンドマン氏が開発したPMXファイル用のレンダラです  
