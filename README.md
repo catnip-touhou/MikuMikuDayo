@@ -3,7 +3,7 @@
 ![0](https://github.com/pennennennennennenem/MikuMikuDayo/assets/56704844/4900961c-f1a2-4fe2-978d-4e57b4b2a8b0)
 ![1](https://github.com/user-attachments/assets/27c52ab9-57f3-49f3-8b87-21da726f8ef3)
   
-[Download(x64_win)](https://github.com/catnip-touhou/MikuMikuDayo/releases))
+[Download(x64_win)](https://github.com/catnip-touhou/MikuMikuDayo/releases)
   
 ## はじめに
 MikuMikuDayoは、サンドマン氏が開発したPMXファイル用のレンダラです  
