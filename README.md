@@ -8,7 +8,7 @@
 ## はじめに
 MikuMikuDayoは、サンドマン氏が開発したPMXファイル用のレンダラです  
 MITライセンスのオープンソースで公開されています  
-https://github.com/pennennennennennenem/MikuMikuDayo  
+[https://github.com/pennennennennennenem/MikuMikuDayo](https://github.com/pennennennennennenem/MikuMikuDayo)  
   
   
 本サイトで公開するMikuMikuDayoは、サンドマン氏の制作物(バージョンβ1)をもとに𝕔𝕒𝕥𝕟𝕚𝕡が、ひとまずキャラクター１体が踊るダンス動画を作れるように改修を加えたものです  
