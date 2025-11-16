@@ -1,4 +1,4 @@
-# MikuMikuDayo  version 1.01
+# MikuMikuDayo  version 1.10
 
 - **Windows Updateおよびグラフィックスカードのドライバは最新にしてください。「ちょっとくらい古くてもいいだろう」と思うかもしれませんが、レイトレーシングのドライバは意外とバグがまだ残っていて、ちょっとアップデートするだけでバグが治ってたりします。これまでのテストで得られた重要な知見ですからくれぐれもバグ報告などをする前にチェックしてください。**
 
@@ -52,6 +52,7 @@ sdPBRなどのシェーダを作るにあたって新しいレンダリング手
 - 主にMikuMikuDayoのプロジェクトファイルである`dayo`ファイルの読み書きが出来ます。本家MMD+MMEでいう`pmm`ファイルと`emm`ファイルをくっつけたようなモノです
 - MikuMikuDayo自体の設定(表示言語の設定など)ができます
 - `VMD`ファイルフォーマットでモーションデータのエクスポートができます。本家MMDへデータをエクスポートしたい時にどうぞ
+- 借り物のクレジットへの記載やニコニコ動画のコンテンツツリー登録に便利な`借り物リスト`を表示できます。プロジェクトファイルのフォルダとプロジェクトに読み込まれている`.pmx`ファイルと同じフォルダに置かれている`.url`ファイル(インターネットショートカット)を検索し、ファイル名部分をモデルの説明文(モデルの概要や作者名など)、リンク先URLからニコニコ動画の作品IDを抽出して一覧にします。`copy`ボタンでメモ帳にペーストするとクレジット表記やコンテンツツリー登録に便利なテキストとして出力されます。
 
 ### Viewメニュー
 - **情報表示**<br>Rendererウィンドウに表示fpsなどのデータを表示するようになります。音声データを読み込んである場合は音声データの波形を表示します
@@ -344,7 +345,7 @@ VisualStudio2022でのビルドを念頭にしています
 
 - [DirectXTex](https://github.com/microsoft/DirectXTex)(desktop_win10を選択)
 - [DirectX12Tk](https://github.com/microsoft/DirectXTK12)収録のSimpleMath.cpp,SimpleMath.h,d3dx12.h
-- [BulletPhysics](https://github.com/microsoft/DirectXTex)
+- [BulletPhysics](https://github.com/bulletphysics/bullet3)
 - [Intel open image denoise](https://www.openimagedenoise.org/)(OIDN)
 - [ImGui](https://github.com/ocornut/imgui)
 - [ImGuizmo](https://github.com/CedricGuillemet/ImGuizmo)

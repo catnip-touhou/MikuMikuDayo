@@ -1,5 +1,25 @@
 # 更新履歴
 
+## version 1.10
+
+### MikuMikuDayo.exe
+- ニコニコ動画のコンテンツツリー作成補助用、借り物リストウィンドウの追加
+- VMDにエクスポートしたカメラデータの回転分が正しく代入されていなかったのを修正
+- マテリアルのテクスチャにscreen.bmpを割り当てた後にレンダラー窓のリサイズor出力をするとマテリアルが更新されなくなるバグを修正
+
+### よろずDXR
+- MipmapGenShader3DをRayGenerationShaderからComputeShaderによる実装に変更
+
+### よろずFX
+- json部のimport文が正しく機能しなかったバグを修正
+
+### エフェクト
+- VertexShaderから追加UV1～4が正しく取得できていなかったバグを修正
+- Subayai、shadowCasterの値が低い物体がGIで映り込まなかったバグを修正
+- sdPBRの舞台装置エフェクトより、LiteParticleのほとんどを移植
+
+
+
 ## version 1.01
 
 ### MikuMikuDayo.exe
@@ -8,6 +28,8 @@
 ### エフェクト
 - SubayaiのGBuffer,NormalDetphの更新をiSample==0の時のみにした(ジッターが入らなくなった)
 - postprocess/glare/diffusionに「明るさ」「閾値」モーフ追加およびボケ具合がアスペクト比の影響を受けるバグを修正
+
+
 
 ## β4→version 1.00
 
