@@ -5,8 +5,9 @@
 <img src="https://github.com/pennennennennennenem/MikuMikuDayo/assets/56704844/4900961c-f1a2-4fe2-978d-4e57b4b2a8b0" width="50%">
 
 ## 更新履歴
-[MikuMikuDayo の更新履歴](update.md)
 [MikuMikuDayo VR の更新履歴](HISTORY.md)
+
+[MikuMikuDayo の更新履歴](update.md)
 
 ## 概要
 MikuMikuDayoにVR180のレンダリング機能を追加したものです
@@ -175,6 +176,13 @@ Keyframeウィンドウでボーンを選択できる他、ボーン選択モー
 - `register` カメラの状態をキーフレームへ登録します
 - `init` カメラの位置・姿勢を初期化します
 
+#### VRウィンドウ
+カメラ編集モード時のみ表示されます
+
+- `IPD` 瞳孔間距離を設定します。
+- `centor panel FOV` 中央のパネルの視野角を設定します。
+- `other panel FOV` 中央以外のパネルの視野角を設定します。
+
 #### Lightウィンドウ
 カメラ編集モード時のみ表示されます。平行光源の設定を行います。
 
@@ -257,8 +265,6 @@ Keyframeウィンドウでボーンを選択できる他、ボーン選択モー
 hlslで自作することが出来ます！
 
 MMEと互換性はありません！
-
-だいぶん仕様も固まってきました！
 
 今のところ、エフェクトは以下のように分類されます
 
@@ -364,7 +370,8 @@ MITライセンスで公開されたソフトウェアであり、無保証・�
 ## 謝辞
 
 MikuMikuDanceの作者 樋口様をはじめとする、MMD界隈の皆様に感謝いたします
-MikuMikuDayo VRの制作にあたっては、オリジナルのMikuMikuDayoの作者 サンドマン様に感謝いたします
+
+MikuMikuDayo VRの制作にあたっては、コードを公開してくださっている、MikuMikuDayoの作者 サンドマン様に感謝いたします
 
 構築方法の項にある通り、MikuMikuDayo VRは他にも幾つものOSSを利用して作られています。それらの作成・維持・管理に携わる皆様に感謝します
 
