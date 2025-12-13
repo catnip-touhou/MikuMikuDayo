@@ -5,7 +5,8 @@
 <img src="https://github.com/pennennennennennenem/MikuMikuDayo/assets/56704844/4900961c-f1a2-4fe2-978d-4e57b4b2a8b0" width="50%">
 
 ## 更新履歴
-[こちら](update.md)
+[MikuMikuDayo の更新履歴](update.md)
+[MikuMikuDayo VR の更新履歴](HISTORY.md)
 
 ## 概要
 MikuMikuDayoにVR180のレンダリング機能を追加したものです
@@ -396,3 +397,5 @@ Dayoはそれ以上略せないんダヨー
 
 - **Z軸の向きが逆じゃないですか?**  
 Z+の方向に青矢印を表示しています(本家MMDでは青矢印の方向はZ-です)。ちなみに、矢印にギザギザと-が付いている場合は軸のマイナス方向を示しています。
+
+
