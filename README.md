@@ -6,7 +6,7 @@ VR180形式でレンダリングできる機能を追加したものです。
 MikuMikuDayo VRでの作例は以下の動画を見ていただけますと幸いです  
 https://youtu.be/8hne-3m3Y_s
 
-# [MikuMikuDayo(派生版)](https://github.com/catnip-touhou/MikuMikuDayo)
+# [MikuMikuDayo 派生版](https://github.com/catnip-touhou/MikuMikuDayo)
 本家のMikuMikuDayoをお探しの方は
 [https://github.com/pennennennennennenem/MikuMikuDayo](https://github.com/pennennennennennenem/MikuMikuDayo)  
 
