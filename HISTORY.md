@@ -2,6 +2,12 @@
 
 ### 2025-12-14
 
+Ver1.1.0-r251214 MikuMkuDayo VR
+
+　・連番画像の書き出しの高速化
+
+### 2025-12-12
+
 Ver1.1.0-r251212 MikuMkuDayo VR 初版リリース
 
 　・MikuMikuDayo 1.1.0ベースにリベース
@@ -19,4 +25,5 @@ Ver0.1.0.0 MikuMikuDayo派生版 初版リリース
 ### 2024-05-12
 
 MikuMikuDayo β1eをベースに制作開始。
+
 
