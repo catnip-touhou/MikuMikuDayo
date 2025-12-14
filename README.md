@@ -1,10 +1,20 @@
-# [MikuMikuDayo](https://github.com/catnip-touhou/MikuMikuDayo)  
-
-![0](https://github.com/pennennennennennenem/MikuMikuDayo/assets/56704844/4900961c-f1a2-4fe2-978d-4e57b4b2a8b0)
-![1](https://github.com/user-attachments/assets/27c52ab9-57f3-49f3-8b87-21da726f8ef3)
-  
+# [MikuMikuDayo VR](https://github.com/catnip-touhou/MikuMikuDayo/tree/develop_vr)  
+VR180形式でレンダリングできる機能を追加したものです。  
 [Download(x64_win)](https://github.com/catnip-touhou/MikuMikuDayo/releases)
-  
+
+
+MikuMikuDayo VRでの作例は以下の動画を見ていただけますと幸いです  
+https://youtu.be/8hne-3m3Y_s
+
+# [MikuMikuDayo(派生版)](https://github.com/catnip-touhou/MikuMikuDayo)
+本家のMikuMikuDayoをお探しの方は
+[https://github.com/pennennennennennenem/MikuMikuDayo](https://github.com/pennennennennennenem/MikuMikuDayo)  
+
+
+
+
+
+
 ## はじめに
 MikuMikuDayoは、サンドマン氏が開発したPMXファイル用のレンダラです  
 MITライセンスのオープンソースで公開されています  
@@ -15,10 +25,13 @@ MITライセンスのオープンソースで公開されています
 （𝕔𝕒𝕥𝕟𝕚𝕡が改修を加えたMikuMikuDayoもMITライセンスのオープンソースです）  
 
   
-__*(2025/02/16 追記) サンドマン氏がMikuMikuDayoバージョンβ2をリリースし、本家のMikuMikuDayoで動画が作れるようになりました*__  
-__*なのでMikuMikuDayoで動画を制作したい方は、サンドマン氏が公開しているMikuMikuDayoを使用することをお勧めします*__  
+__*(2025/02/16 追記) サンドマン氏がMikuMikuDayoバージョンβ2以降をリリースし、本家のMikuMikuDayoで動画が作れるようになりました*__  
+__*なのでMikuMikuDayoで動画を制作したい方は、サンドマン氏が公開しているMikuMikuDayoを使用することをお勧めします*__　
 
-  
+
+![0](https://github.com/pennennennennennenem/MikuMikuDayo/assets/56704844/4900961c-f1a2-4fe2-978d-4e57b4b2a8b0)
+![1](https://github.com/user-attachments/assets/27c52ab9-57f3-49f3-8b87-21da726f8ef3)
+
 キャラクターのほかにステージを一つ読み込むことができ、それぞれにVMDファイルによるモーションを読み込むことができます(VPDには対応していません)  
 カメラモーションの読み込みにも対応しています（照明の読み込みには対応していません）  
 AVIファイルへの出力ができます（透過AVIには対応していません。したいなぁ）  
@@ -38,7 +51,7 @@ AVIファイルへの出力ができます（透過AVIには対応していま�
 
 
 ## つくりかけです
-そういうことでよろしくです  
+つくりかけですが、こちらの初期派生版は更新を停止しています  
 
 
 ## 起動方法
@@ -205,6 +218,7 @@ Nvidia CUDA Toolkitのインストールが別途必要ですが、それ以外�
 - [DirectX12Tk](https://github.com/microsoft/DirectXTK12)収録のSimpleMath.cpp,SimpleMath.h,d3dx12.h
 - [BulletPhysics](https://github.com/bulletphysics/bullet3)
 - [Intel open image denoise](https://www.openimagedenoise.org/)(OIDN)
+- [ImGui](https://github.com/ocornut/imgui)
 - [OpenCV](https://github.com/opencv/opencv/)
 - [Nvidia CUDA Toolkit](https://developer.nvidia.com/cuda-downloads?target_os=Windows&target_arch=x86_64)
 
@@ -238,10 +252,6 @@ PMXLoaderの物理演算対応にあたってはbenikabocha氏[saba](https://git
 
 
 ## FAQ
-
-- ひこうきしか有りませんが、ダヨーさんはどこですか  
-ひこうきには[すず式ミクダヨー](https://www.nicovideo.jp/watch/sm18358421)さんが丁度よく載せられるようになっていますから、PMXEditor等を使って載せてあげたらいいと思います  
-ひこうきモデルの作者はサンドマン氏で、[CC0](https://creativecommons.jp/sciencecommons/aboutcc0/)ライセンスで公開されています  
 
 - 動かないんですけど  
 DXR対応ビデオカードが無いと動かせないんですけど  
