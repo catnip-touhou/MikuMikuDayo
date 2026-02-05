@@ -35,7 +35,7 @@ stateDiagram-v2
     }
 
     %% Transitions
-    EditMode --> PlayMode : Play Button / Space Key
+    EditMode --> PlayMode : Play Button / P Key
     PlayMode --> EditMode : Pause / Stop
     
     EditMode --> ExportMode : Video/Image Export
