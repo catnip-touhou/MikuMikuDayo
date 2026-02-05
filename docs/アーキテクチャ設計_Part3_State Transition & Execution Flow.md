@@ -8,7 +8,7 @@
 
 ## 1. Application State Machine
 MikuMikuDayoは、主に「編集(Edit)」「再生(Play)」「出力(Export)」の3つの主要な状態を持つ。
-これらは `dayo.cpp` 内のフラグ（`g_isPlaying` 等）や `AsyncSaver` の状態によって管理される。
+これらは `dayo.cpp` 内のフラグ（`Animation`や`Recording` 等）や `AsyncSaver` の状態によって管理される。
 
 ```mermaid
 stateDiagram-v2
