@@ -10,7 +10,7 @@
 [MikuMikuDayo の更新履歴](update.md)
 
 ## 概要
-MikuMikuDayoにVR180のレンダリング機能や動画直接出力機能を追加したものです
+MikuMikuDayoにVR180のレンダリング機能や動画出力機能を追加したものです
 
 ## 動作環境
 - Windows11　　※ Linux + Protonでも起動します。
