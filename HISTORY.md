@@ -1,4 +1,12 @@
 # 更新履歴
+### 2026-02-20
+
+Ver1.1.0-r260220 MikuMkuDayo VR
+
+　・dayoファイルを開く際にパスの復元をトライするように機能追加
+
+　・Intel OIDN VerUP(Blackwell世代対応)
+
 ### 2026-02-11
 
 Ver1.1.0-r260211 MikuMkuDayo VR
@@ -58,6 +66,7 @@ Ver0.1.0.0 MikuMikuDayo派生版 初版リリース
 ### 2024-05-12
 
 MikuMikuDayo β1eをベースに制作開始。
+
 
 
 
