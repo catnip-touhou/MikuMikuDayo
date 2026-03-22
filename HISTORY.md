@@ -1,4 +1,12 @@
 # 更新履歴
+### 2026-03-22
+
+Ver1.2.0-r260322 MikuMkuDayo VR
+
+　・AMD FidelityFX Super Resolution 2.2 を使ったVRレンダリング対応、及び関連するバグフィックス（α版）
+
+　※ FSR機能は"FSR2_Upscaler.pmx"を読み込んで使用できますが、特にVRレンダリング時はメモリ使用量がかなり多い(5.7Kで+3.5GB)ので注意してください。
+
 ### 2026-03-16
 
 Ver1.2.0-r260316 MikuMkuDayo VR
