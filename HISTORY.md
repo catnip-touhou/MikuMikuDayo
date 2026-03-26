@@ -1,8 +1,16 @@
 # 更新履歴
+### 2026-03-27
+
+　・AMD FidelityFX Super Resolution 2.2 組み込み バグフィックス（α版）
+
+　・FOGが使用できない問題修正(hlslソースマージ漏れ)、VRで使用できるように改修
+
+　・キーフレームのドラッグ＆ドロップ移動対応（ブロック単位で移動可）
+
 ### 2026-03-25
 Ver1.2.0-r260325 MikuMkuDayo VR
 
-　・AMD FidelityFX Super Resolution 2.2 バグフィックス（α版）
+　・AMD FidelityFX Super Resolution 2.2 組み込み バグフィックス（α版）
 
 　・FSR2を使用する際に、背景を操作するためのポストプロセスエフェクト追加
 
