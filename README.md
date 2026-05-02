@@ -4,9 +4,9 @@ VR180形式でレンダリングできる機能や動画出力機能を追加し
 
 
 MikuMikuDayo VRでの作例は以下の動画を見ていただけますと幸いです  
-https://youtu.be/8hne-3m3Y_s
+[https://youtu.be/8hne-3m3Y_s](https://youtu.be/8hne-3m3Y_s)
 
-https://youtu.be/ilkKUg9I2eg
+[https://youtu.be/ilkKUg9I2eg](https://youtu.be/Hdz1w9bC6G4)
 
 # [MikuMikuDayo 派生版](https://github.com/catnip-touhou/MikuMikuDayo)
 本家のMikuMikuDayoをお探しの方は
