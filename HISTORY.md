@@ -1,4 +1,14 @@
 # 更新履歴
+### 2026-08-30
+
+Ver1.3.0-r260830 MikuMkuDayo VR
+
+　・オリジナルのMikuMkuDayo Ver1.2.0 -> Ver1.3.0 変化点取り込み
+  
+　・GPU選択機能追加
+
+　・Subayai-L のSS-VPLのAnyHitアルゴリズム改善
+
 ### 2026-05-01
 
 　・DLSS3.5対応（アップスケーリングのみ、α版）
