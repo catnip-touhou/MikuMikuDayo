@@ -1,4 +1,27 @@
 # 更新履歴
+### 2026-11-03
+
+Ver1.4.0-r261103 MikuMkuDayo VR
+
+　・オリジナルのMikuMkuDayo Ver1.3.0 -> Ver1.4.0 変化点取り込み（標準入力によるオリジナル版MCP接続機能は除く。VR版独自MCP(開発中)を継続使用）  
+　・Keyframesウィンドウのキー補正(correct bone/morph/cam)を、本家1.40のツールボックスへ統合  
+　　（表情大きさ補正には旧VR版にあったオフセット(y=Ax+BのB)を追加）  
+　・本家1.40の以下の不具合をVR版で修正  
+　　- 表情大きさ補正の「clamp 0 to 1」が逆に作用する  
+　　- auto lip makerで範囲外書き込みが発生する  
+　　- 設定fontEmboldenが効かない  
+　　- 位置・角度補正のカメラfovオフセットが度ではなくラジアンとして加算される  
+　・FreeType 2.14.3を同梱(lib/freetype)。ImGuiは1.92.1のまま(misc/freetypeのみ追加)  
+　・VR版独自ポストプロセス(FSR2/DLSS/EquirectangularX/PreviewMask/diffusion_AL)にポストプロセス実行順のヒント(stage)を設定  
+　・Subayai-Lに本家1.40のSubayai変化点を取り込み(Subayai 1.40 ＋ SS-VPL ＋ DLSS/FSR2用VelocityMap として維持)  
+　　- 合成パイプラインの再構成(Copy→Compo/Acc)、GI合成の整理、蓄積時のNaN対策、TAA用の動きベクトル(MotionVec)  
+　　- 動きベクトルの前フレーム行列は、面ごとに保持されるPrevViewProjectionMatrixを使用(VRパノラマでも面ごとに正しく計算)  
+　　- TAAのブレンドは本家同様に無効(係数0)のまま  
+　  
+　　※注意：TAA(postprocess/TAA)は前フレームのカメラ行列で再投影するため、VRパノラマ表示・VR出力時は正しく動作しません。通常表示でご利用ください。  
+　　※注意：設定ファイルのフォント指定はファミリー名(例:"Yu Gothic")になりました。見つからない場合は同梱のNotoSansJPで表示します。  
+
+
 ### 2026-08-30
 
 Ver1.3.0-r260830 MikuMkuDayo VR
