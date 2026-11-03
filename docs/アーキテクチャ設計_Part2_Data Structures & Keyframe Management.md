@@ -134,7 +134,7 @@ classDiagram
 C++17 `std::variant` を使用し、異なる型のキーフレームマップへのアクセスを統一する仕組み。
 
 1.  **UI Construction**: `KeyFrameLeaf` 作成時に、その葉が担当するデータマップ（例：`motionKeys` 内の特定ボーンのマップ）へのポインタを `source` に格納する。
-2.  **Generic Access**: UI描画や編集ロジック（`keyframeUpdaterDayo.h`）では、`std::visit` を使用して `source` にアクセスする。
+2.  **Generic Access**: UI描画や編集ロジック（`keyframeDayo.h` のツールボックス等）では、`std::visit` を使用して `source` にアクセスする。
 3.  **Type Safety**: これにより、「ボーン」「カメラ」「モーフ」といった異なるデータ型を、型安全かつ分岐ロジックなし（または最小限）で一元管理している。
 
 ### 2.4 Undo/Redo & Copy/Paste (`KeySubset`)

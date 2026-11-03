@@ -28,7 +28,7 @@ graph TD
         end
         
         subgraph Logic_Components [Business Logic]
-            KF_Logic[keyframeUpdaterDayo.h<br/>（Keyframe Algorithms）]
+            KF_Logic[keyframeDayo.h<br/>（Keyframe Algorithms / Toolbox）]
             IO_Logic[saveDayo.h<br/>（Project I/O）]
             Config_Logic[configDayo.h<br/>（App Config）]
             Linker_Logic[fxLinkerDayo.h<br/>（Effect Linker）]
@@ -103,7 +103,7 @@ UIから分離された、データの加工や保存に関するロジック。
 
 | Module Name | Source File | Description & Responsibilities |
 | :--- | :--- | :--- |
-| **Keyframe Logic** | `keyframeUpdaterDayo.h` | **Keyframe Algorithms**<br>キーフレームの補正（位置・回転のスケール/オフセット）、反転ペースト、Undo/Redo用データの生成ロジック。 |
+| **Keyframe Logic** | `keyframeDayo.h` | **Keyframe Algorithms**<br>Keyframesウィンドウのツールボックス(位置・角度補正、速度調整、表情大きさ補正、ランダムまばたき、MorphEQ、auto lip maker)、反転ペースト、Undo/Redo用データの生成ロジック。※ver1.40で旧`keyframeUpdaterDayo.h`(VR独自のキー補正)を本家ツールボックスへ統合 |
 | **Project I/O** | `saveDayo.h` | **Serialization**<br>`.dayo` 形式（JSONヘッダ + バイナリボディ）でのプロジェクト保存・読み込み処理。`cereal`ライブラリを使用。 |
 | **Effect Linker** | `fxLinkerDayo.h` | **Effect Linking**<br>外部の`.fx`ファイルとPMXモデルを紐づける管理クラス。ラッパーファイル（`.fxdayo`）の生成と管理。 |
 | **Configuration** | `configDayo.h` | **App Configuration**<br>ウィンドウサイズ、言語設定、ミップマップ生成設定などのアプリケーション設定の永続化。 |
@@ -127,8 +127,8 @@ UIから分離された、データの加工や保存に関するロジック。
 | **モデル読み込み** | `PMXLoader.ixx` | `dayo.cpp`, `matDayo.h` |
 | **物理演算 (再生)** | `PMXLoader.ixx` | `dayo.cpp` (Update loop) |
 | **タイムライン操作** | `keyframeDayo.h` | `defsDayo.h` (KeyBind) |
-| **キーフレーム補正** | `keyframeUpdaterDayo.h` | `keyframeDayo.h` (UIトリガー) |
-| **アンドゥ/リドゥ** | `dayo.cpp` | `keyframeUpdaterDayo.h`, `PMXLoader.ixx` |
+| **キーフレーム補正** | `keyframeDayo.h` (ツールボックス) | `PMXLoader.ixx` (KeySubset) |
+| **アンドゥ/リドゥ** | `dayo.cpp` | `keyframeDayo.h`, `PMXLoader.ixx` |
 | **エフェクト割当** | `matDayo.h` | `fxLinkerDayo.h`, `YRZFx.ixx` |
 | **描画・プレビュー** | `renDayo.h` | `YRZ.ixx`, `YRZFx.ixx` |
 | **画像/動画保存** | `asyncSaverDayo.h` | `dayo.cpp` |
