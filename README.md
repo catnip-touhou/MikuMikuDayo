@@ -1,6 +1,7 @@
 # [MikuMikuDayo VR](https://github.com/catnip-touhou/MikuMikuDayo/tree/develop_vr)  
 VR180形式でレンダリングできる機能や動画出力機能を追加したものです。  
-[Download(x64_win)](https://github.com/catnip-touhou/MikuMikuDayo/releases)
+- MikuMikuDayo VRのページは[こちら](https://github.com/catnip-touhou/MikuMikuDayo/tree/develop_vr)    
+- [Download(x64_win)](https://github.com/catnip-touhou/MikuMikuDayo/releases)
 
 
 MikuMikuDayo VRでの作例は以下の動画を見ていただけますと幸いです  
@@ -69,9 +70,17 @@ AVIファイルへの出力ができます（透過AVIには対応していま�
 マウスやテンキーでの操作については画面に表示される通りなのでメニューについて  
 
 ### Fileメニュー
+<details>
+<summary><b>各種ファイルの読み込み、プロジェクトの保存</b></summary>
+
 `File`メニューでスカイボックス,モデル,モーション,カメラの読み込みが出来ます。モデルはPMX2.0形式のみ対応しています(PMDやXは不可)。読み込んだモデルやモーションなどの情報をまとめてプロジェクトファイルに保存や読込みが出来ます。  
 
+</details>
+
 ### `View`メニュー
+<details>
+<summary><b>レンダラの選択、レンダリングオプションの設定</b></summary>
+
 - `denoise`でIntel OIDNを使用したデノイズのON/OFFが出来ます  
 - `spectral rendering`で分光を考慮したレンダリングをON/OFFできます  
 
@@ -90,14 +99,24 @@ AVIファイルへの出力ができます（透過AVIには対応していま�
 　・モデルの各材質に割り当てられたマテリアルプリセットの確認  
 - `environment setting` 色調調整やテロップに表示される内容を確認できるサブウインドウを表示します。動画出力中はメインウィンドウがボーダレスウィンドウになりますので、このサブウィンドウで動画出力の進捗状況を確認できます
 
+</details>
+
 ### `Motion`メニュー
+<details>
+<summary><b>モーションの再生や停止</b></summary>
+
 - `Start` モーションの再生を開始します
 - `Stop` モーションの再生を停止します
 - `Jump to` 指定のフレームにジャンプします
 - `Motion loop` モーションの最後で最初にループするか停止するかを指定できます
 - `Reset` 0フレームにジャンプしてモーションをリセットし、カメラのユーザーの操作や物理演算もリセットします
 
+</details>
+
 ### `Effect`メニュー
+<details>
+<summary><b>各種エフェクトの適用</b></summary>
+
 - `dof` ボケの有効無効を切り替えます
 - `autofocus` 有効にするとカメラのピント位置を画面中央にあるオブジェクトに自動的に合わせます
 - `bloom` 明るいところから光があふれる表現の有効無効を切り替えます（簡易的な実装なのであまり品質は良くないです）
@@ -107,12 +126,21 @@ AVIファイルへの出力ができます（透過AVIには対応していま�
 - `user pixel shader` hlsl/Plugin02_PS.hlslに記述されているピクセルシェーダーを実行します（サンプルはモノトーンにするコードになっています）
 - `view depth` Rayシェーダで測った深度マップを画面に表示します
 
+</details>
+
 ### `Capture`メニュー
+<details>
+<summary><b>静止画や動画への出力</b></summary>
+  
 - `Save as PNG` PNGファイルに画像として出力します
 - `Save as AVI` AVIファイルに動画として出力します。圧縮コーデックを指定することができます
 - `Set window size` ウィンドウサイズを指定するサブウィンドウを開きます
 
+</details>
+
 ## VMDファイル読み込み時のコードページについて
+<details>
+<summary>他国語版モデル専用のモーションが正しく扱えない場合は、config.jsonのコードページ設定を変更します</summary>
 
 VMDファイルに格納されているボーン名・モーフ名を示す文字列はANSIでエンコードされているため、VMDファイル内にボーン名として格納されているバイト列と表示される文字列との対応は環境により異なる可能性があります。これに対応できるよう、VMDファイルが作成された際に使われていたコードページが何であるかを`config.json`内の`vmd_codepage`で指定できるようになっています  
 
@@ -120,10 +148,12 @@ VMDファイルに格納されているボーン名・モーフ名を示す文�
 
 現状ではいずれにしてもPMXファイルでのボーン名・モーフ名と完全一致した場合のみ正しく認識する実装になっているので、ANSIエンコードされた状態で15バイトを超えるボーン名・モーフ名を指すキーフレームは扱えませんのでご注意ください  
 
+</details>
 
 ## 材質の設定方法
-
-PMXファイルに含まれる物体の材質名に応じて金属や肌などの質感を切り替えています。ですから、モデルをコピーしたうえでPMXeditorで材質名の変更を適宜行う必要があるでしょう  
+<details>
+<summary>PMXファイルに含まれる物体の材質名に応じて金属や肌などの質感を切り替えています</summary>
+ですから、モデルをコピーしたうえでPMXeditorで材質名の変更を適宜行う必要があるでしょう  
 
 `config.json`をいじると材質名に含まれるキーワードと材質の対応付けを変えられますが、エラーチェックは雑なので正しく読み込めるjsonファイルでないとどんなエラーが出るか分かりませんから、バックアップを取ってからいじって下さい  
 
@@ -146,9 +176,13 @@ jsonオブジェクトは以下の構成になっています
 - `material` マテリアルプリセットの定義
 - `rule` PMXモデルの材質名に含まれるキーワードに対して、マテリアルプリセットのどれを使うかという対応付け
 
+</details>
+
 ### default_material
 
-例 "default_material": { "IOR":[1.5,0], "roughness":[0.5,0.5] },  
+"default_material": { "IOR":[1.5,0], "roughness":[0.5,0.5] },  
+<details>
+<summary>materialに指定できるパラメータ</summary>
 
 使用できるマテリアルパラメータ名とパラメータの記述法は以下の通りです  
 大文字・小文字は区別されます  
@@ -190,19 +224,32 @@ jsonオブジェクトは以下の構成になっています
   
   
 MikuMikuDayoではレイトレーシングを使っており、主要な光源はSkyboxとなります。各材質がまったく発光しない設定で室内ステージを読み込むと、Skyboxからの光がステージに遮断され、内側は真っ暗になってしまいます（現実で考えれば、閉め切った部屋の電気を消せば真っ暗になりますよね)。なので、それぞれの材質に"light"による小さい発光要素を付け足すことでひとまず真っ暗にならないようにすることができます(0.1～0.3ぐらいがいい感じになると思います)。
+
+</details>
   
 ### material
 
+例 "name": { parameter list... },  
 "name"の後にマテリアル名を文字列で指定する必要があります。あとはdefault_materialと同様のオブジェクトを配列で指定します  
 
 ### rule
 例 [ { "keyword":["金","メタル","metal"], "material":"metal" }, ... ]  
+<details>
+<summary>"keyword"配列に指定されたキーワードを材質名が持つ場合、"material"に指定されたマテリアルが適用されます  </summary>
 
-"keyword"配列に指定されたキーワードのどれか一つを材質名に持つ場合、"material"に指定されたマテリアルが適用されます  
   
-マテリアルをGUIで設定できるようにしたいですが、予定は未定ですので、`config.json`で指定することに慣れておくと良いかもしれません。設定した`json`ファイルはWorkspace内の`Load Json file..`ボタンで読み込むことでレンダリングに反映させることができます（`json`ファイルを更新したらリアルタイムにDayoに反映するぐらいはしたいなぁと思いますが、予定は未定です）  
+マテリアルをGUIで設定できるようにしたいですが、  
+予定は未定ですので、`config.json`で指定することに慣れておくと良いかもしれません。  
+  
+設定した`json`ファイルはWorkspace内の`Load Json file..`ボタンで読み込むことでレンダリングに反映させることができます  
+（`json`ファイルを更新したらリアルタイムにDayoに反映するぐらいはしたいなぁと思いますが、予定は未定です） 
+
+</details>
 
 ## 構築方法
+<details>
+<summary>VisualStudio2022を用いた構築</summary>
+
 `src`ディレクトリと`lib`ディレクトリにソースコードが入っています  
 MikuMikuDayoアプリケーション本体のソースは`src`ディレクトリのdayo.cppとdayoWorkspace.cppファイルです  
 `lib`ディレクトリにはアプリケーション本体から使われる様々なSW部品が入っています  
@@ -235,6 +282,8 @@ OIDNについては、上記リンクよりダウンロードしたoidn-2.2.2.x6
 OpenCVについては、上記リンクよりダウンロードし、opencv.hppにインクルードパスを通し、opencv_world490.libとopencv_world490d.libにライブラリパスを通せばOKです  
 
 Nvidia CUDA Toolkitは、OpenCVを含めたMikuMikuDayoをビルドする際に必要です。`CUDA_PATH`の環境変数にCUDA Toolkitのインストール先のパスがセットされている必要があります  
+
+</details>
 
 ## 使用範囲
 
