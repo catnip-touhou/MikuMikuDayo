@@ -185,10 +185,10 @@ BDPTを使う場合は、`postprocess/tonemapper/ACESTonemap.pmx`をドロップ
 
 MikuMikuDayoが無事に起動できると以下のようにメインウィンドウ全体の中に小さなサブウィンドウが沢山でてきます
 
+![1](g/gamen.png)
+
 <details>
 <summary>画面のイメージとレイアウトのリセット方法</summary>
-
-![1](g/gamen.png)
 
 サブウィンドウは個々に移動やリサイズ、ドッキングが可能ですから好きにレイアウトしてください
 
