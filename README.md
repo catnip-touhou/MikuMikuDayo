@@ -70,7 +70,7 @@ AVIファイルへの出力ができます（透過AVIには対応していま�
 マウスやテンキーでの操作については画面に表示される通りなのでメニューについて  
 
 ### Fileメニュー
-<details>
+<details markdown="1">
 <summary><b>各種ファイルの読み込み、プロジェクトの保存</b></summary>
 
 `File`メニューでスカイボックス,モデル,モーション,カメラの読み込みが出来ます。モデルはPMX2.0形式のみ対応しています(PMDやXは不可)。読み込んだモデルやモーションなどの情報をまとめてプロジェクトファイルに保存や読込みが出来ます。  
@@ -78,7 +78,7 @@ AVIファイルへの出力ができます（透過AVIには対応していま�
 </details>
 
 ### `View`メニュー
-<details>
+<details markdown="1">
 <summary><b>レンダラの選択、レンダリングオプションの設定</b></summary>
 
 - `denoise`でIntel OIDNを使用したデノイズのON/OFFが出来ます  
@@ -102,7 +102,7 @@ AVIファイルへの出力ができます（透過AVIには対応していま�
 </details>
 
 ### `Motion`メニュー
-<details>
+<details markdown="1">
 <summary><b>モーションの再生や停止</b></summary>
 
 - `Start` モーションの再生を開始します
@@ -114,7 +114,7 @@ AVIファイルへの出力ができます（透過AVIには対応していま�
 </details>
 
 ### `Effect`メニュー
-<details>
+<details markdown="1">
 <summary><b>各種エフェクトの適用</b></summary>
 
 - `dof` ボケの有効無効を切り替えます
@@ -129,7 +129,7 @@ AVIファイルへの出力ができます（透過AVIには対応していま�
 </details>
 
 ### `Capture`メニュー
-<details>
+<details markdown="1">
 <summary><b>静止画や動画への出力</b></summary>
   
 - `Save as PNG` PNGファイルに画像として出力します
@@ -139,7 +139,7 @@ AVIファイルへの出力ができます（透過AVIには対応していま�
 </details>
 
 ## VMDファイル読み込み時のコードページについて
-<details>
+<details markdown="1">
 <summary>他国語版モデル専用のモーションが正しく扱えない場合は、config.jsonのコードページ設定を変更します</summary>
 
 VMDファイルに格納されているボーン名・モーフ名を示す文字列はANSIでエンコードされているため、VMDファイル内にボーン名として格納されているバイト列と表示される文字列との対応は環境により異なる可能性があります。これに対応できるよう、VMDファイルが作成された際に使われていたコードページが何であるかを`config.json`内の`vmd_codepage`で指定できるようになっています  
@@ -151,7 +151,7 @@ VMDファイルに格納されているボーン名・モーフ名を示す文�
 </details>
 
 ## 材質の設定方法
-<details>
+<details markdown="1">
 <summary>PMXファイルに含まれる物体の材質名に応じて金属や肌などの質感を切り替えています</summary>
 ですから、モデルをコピーしたうえでPMXeditorで材質名の変更を適宜行う必要があるでしょう  
 
@@ -181,7 +181,7 @@ jsonオブジェクトは以下の構成になっています
 ### default_material
 
 "default_material": { "IOR":[1.5,0], "roughness":[0.5,0.5] },  
-<details>
+<details markdown="1">
 <summary>materialに指定できるパラメータ</summary>
 
 使用できるマテリアルパラメータ名とパラメータの記述法は以下の通りです  
@@ -234,7 +234,7 @@ MikuMikuDayoではレイトレーシングを使っており、主要な光源�
 
 ### rule
 例 [ { "keyword":["金","メタル","metal"], "material":"metal" }, ... ]  
-<details>
+<details markdown="1">
 <summary>"keyword"配列に指定されたキーワードを材質名が持つ場合、"material"に指定されたマテリアルが適用されます  </summary>
 
   
@@ -247,7 +247,7 @@ MikuMikuDayoではレイトレーシングを使っており、主要な光源�
 </details>
 
 ## 構築方法
-<details>
+<details markdown="1">
 <summary>VisualStudio2022を用いた構築</summary>
 
 `src`ディレクトリと`lib`ディレクトリにソースコードが入っています  
