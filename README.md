@@ -529,7 +529,7 @@ FSR2/DLSS3.5のアップスケーラを読み込んでいる場合は、録画�
 <details>
 <summary><b>ポストプロセスの使い方と実行順</b></summary>
 
-ポストプロセス用の`.pmx`ファイルをドロップすると、そのポストプロセスが有効になります。同梱のポストプロセスの説明は[postprocess/postprocess.md](MikuMikuDayo/postprocess/postprocess.md)を参照してください
+ポストプロセス用の`.pmx`ファイルをドロップすると、そのポストプロセスが有効になります。同梱のポストプロセスの説明は[postprocess/postprocess.md](/postprocess/postprocess.md)を参照してください
 
 ポストプロセスの実行順はModelsウィンドウの`order`ボタンで開く順序設定ダイアログで設定します。`auto`ボタンを押すと、各エフェクトに設定されている実行順のヒント(`stage`と`subHintOrder`)に従って、おすすめの順番に並べ替えます
 
