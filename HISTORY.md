@@ -3,8 +3,8 @@
 
 Ver1.4.0-r261121 MikuMkuDayo VR
 
-　・NVIDIA以外のGPUでOIDNのデノイズが効いていなかった不具合を修正(OIDNのGPUデバイスを使えないGPUでは、CPUでデノイズします) 
-　　- AMD(HIP)・Intel(SYCL)のGPUで、GPUデノイズできるようになりました
+　・NVIDIA以外のGPUでOIDNのデノイズが効いていなかった不具合を修正(OIDNのGPUデバイスを使えないGPUでは、CPUでデノイズします)   
+　　- AMD(HIP)・Intel(SYCL)のGPUで、GPUデノイズできるようになりました  
 　　- 複数のGPUを搭載した環境で、GPU選択で選んだGPUでデノイズします  
 　　- yrz.logに、デノイズに使用しているデバイスの種類とGPU名を出力します  
 　・Linux + Proton 環境で、同封の「MikuMikuDayo OIDN サーバー(Linux用)」を起動しておくと、デノイズをGPUで実行するよう対応  
