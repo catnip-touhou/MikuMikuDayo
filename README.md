@@ -14,11 +14,12 @@
 - [起動方法](#起動方法) … 起動とランタイム(DLL)の入手先
 - [操作方法](#操作方法) … ファイルの読み込み、各メニュー、各ウィンドウの使い方
 - [ポストプロセスとアップスケーラ](#ポストプロセスとアップスケーラ) … 【VR】ポストプロセスの実行順、FSR2/DLSS3.5の使い方、VR版で追加されたポストプロセス
+- [【VR】AI連携(AIナカワリ・MCP)](#vrai連携aiナカワリmcp) … AIにモーションを作らせるAIナカワリとの連携、AI連携スイッチ
 - [MikuMikuDayoのエフェクトについて](#mikumikudayoのエフェクトについて) … deform / render / postprocess の考え方
 - [VMDファイル読み込み・エクスポート時のコードページについて](#vmdファイル読み込みエクスポート時のコードページについて) … 他国語版モーションの文字化け対策
 - [材質ファイルの書き方](#材質ファイルの書き方) … 材質注釈ファイルの書式
 - [今後の予定](#今後の予定) / [多分対応しない事](#多分対応しない事)
-- [構築方法](#構築方法) … ソースからのビルド方法と依存ライブラリ
+- [構築方法](#構築方法) … ソースからのビルド方法と依存ライブラリ、【VR】Linux 用 OIDN サーバー、【VR】AI連携
 - [付属のツールについて](#付属のツールについて) / [使用範囲](#使用範囲) / [謝辞](#謝辞) / [FAQ](#faq)
 
 ## 更新履歴
@@ -39,14 +40,25 @@ MikuMikuDayoにVR180のレンダリング機能や動画出力機能を追加し
 - **拡張物理** 風や重力パレットを使い、剛体グループ単位で重力・風の影響を制御できます(Advance physicsウィンドウ)
 - **FXLinker** 材質ごとにリムライトなどのエフェクトを割り当てられます(Effect Mappingウィンドウ)
 - **キーフレーム編集の強化** キーのドラッグ&ドロップ移動、物理ボーンの焼き込み
+- **AI連携** AIナカワリ(別配布)と連携して、キーとキーの間のモーションをAI(NVIDIA Kimodo・MotionBricks)に作らせることができます(既定はOFF。メニューバーの右端の「AI連携」スイッチ)
 - **UIのスケーリング、GPU選択、リソースモニタ**
 - **Linux + Proton 対応**
 
 </details>
 
 ## 動作環境
-- Windows11　※ Linux + Protonでも動作します。ただしその場合デノイズがGPUではなくCPUで動作になります。
-- DirectX raytracingのハードウェアサポート必須。具体的にはGeForceRTX2060以降です。Radeon+DXR環境でのテストはできてません。
+- Windows11　※ Linux + Protonでも動作します(下記の補足を参照)
+- DirectX raytracingのハードウェアサポートが必須です。具体的にNVIDIAではGeForceRTX2060以降です。Radeon+DXR環境でも動作しますが、検証が不足しています
+- デノイズ(Intel OIDN)について：GPU(NVIDIA:CUDA、AMD:HIP、Intel:SYCL)で実行できます。GPUがOIDNのサポート対象外の場合はCPUで実行します【VR】。
+
+<details>
+<summary><b>Linux + Proton での補足</b></summary>
+
+- Linux + Proton では、そのままではデノイズがCPUで実行されるため、とても重くなります。同封の「MikuMikuDayo OIDN サーバー(Linux用)」を起動しておくと、デノイズをGPUで実行します。使い方は配布物に同梱の説明書(`tool/oidn_linux_server/README.md`)を参照してください
+- Linux でGPUデノイズを使うには、NVIDIA はドライバ 525.60.13 以降、AMD は ROCm/HIP を含む「Radeon Software for Linux」、Intel は GPU計算用ランタイム(compute-runtime)が必要です。ゲーム用のドライバ(Mesa)だけでは、AMD・IntelのGPUではCPU実行になります
+- 既知の問題：Linux + Proton では BDPT / BDPT-L レンダラが起動できません(調査中)。Subayai / Subayai-L をお使いください
+
+</details>
 
 <details>
 <summary><b>DLSS・動画出力についての補足</b></summary>
@@ -178,6 +190,16 @@ BDPTを使う場合は、`postprocess/tonemapper/ACESTonemap.pmx`をドロップ
 - ショートカット一覧を表示してキーボードよる操作方法一覧を確認できます
 - `マニュアルダヨ...` `チュートリアルダヨ...` で本家MikuMikuDayoのオンラインマニュアル・チュートリアルをブラウザで開きます
 - `About MikuMikuDayo VR...` でバージョンや使用しているライブラリの情報を表示します
+
+</details>
+
+<details>
+<summary><b>【VR】AI連携スイッチ(メニューバーの右端)</b> ― 外部のAIとの連携をまとめてON/OFF</summary>
+
+- メニューバーの右端の「AI連携」スイッチを押すと、外部のAIとの連携(AIナカワリ連携・LLM向けMCPツール)をON/OFFできます。詳しくは[【VR】AI連携(AIナカワリ・MCP)](#vrai連携aiナカワリmcp)を参照してください
+- スイッチの表示：`OFF`(灰) 停止中 / `ON`(緑) 待ち受け中 / `...`(黄) 起動中 / `ERR`(赤) ポートを開けなかった / `N/A` このビルドでは無効
+- マウスを乗せると、今の状態の説明(待ち受けているアドレスや、失敗の理由)が表示されます
+- (LLM向けMCPツールはまだ開発途中です。現状、LLMとのブリッジ機能部分はまだリリースしていませんので、実質的にはまだ使用できません）
 
 </details>
 
@@ -585,6 +607,38 @@ FSR2/DLSS3.5には、TAAと同じように前のフレームの映像を使っ�
 
 </details>
 
+## 【VR】AI連携(AIナカワリ・MCP)
+
+<details>
+<summary><b>AI連携スイッチ</b> ― 既定はOFF。ONの間だけ 127.0.0.1:9191 で待ち受けます</summary>
+
+- 外部のAIと連携する機能(AIナカワリ連携・LLM向けMCPツール)は、メニューバーの右端の「AI連携」スイッチでまとめてON/OFFします
+- **既定はOFF**です。OFFの間は待ち受けを行わず、外部とのTCP通信をしません
+- ONにすると、このPCの中からだけ接続できる受け口(TCP `127.0.0.1:9191`)を開きます。ほかのPCからは接続できません
+- ON/OFFは`config.json`の`aiLinkEnabled`に保存され、次回の起動時に引き継ぎます
+- ポート9191はPCの中で1つのアプリしか使えません。MikuMikuDayoを2つ起動して両方ONにすると、後の方は`ERR`(赤)になります
+- (デノイズ用のOIDNサーバーとの通信はOFF時でも実施します。OIDNサーバーはLinux上で動作させるときだけ使用します)
+- (LLM向けのMCPツールは開発中です)
+
+</details>
+
+<details>
+<summary><b>AIナカワリ連携</b> ― キーとキーの間のモーションをAIに作らせる</summary>
+
+[AIナカワリ(MMD-AINakawari)](https://github.com/BeamManP/MMD-AINakawari)は、キーとキーの間をAI(NVIDIA Kimodo・MotionBricks)が作って埋めるツールです(別配布。MMD・MMM用)。付属の連携パッケージで連携部品(DayoLink)を足すと、MikuMikuDayoのタイムラインでも使えます
+
+1. AIナカワリ 0.6.0 の配布zip(`MMD-AINakawari-0.6.0.zip`)を落として、好きな場所に展開します(MMD・MMMは不要です)
+2. 展開してできた`MMD-AINakawari`フォルダを、`tool\ainakawari_dayolink\install_dayolink.cmd`の上にドラッグ&ドロップします
+3. MikuMikuDayoの「AI連携」をONにしてから、`MMD-AINakawari\MMDayo-AINakawari.cmd`でAIナカワリの窓を開きます。初回だけ、窓の「セットアップ」でKimodo・MotionBricks(約12GB)を入れます
+4. モデルを選び、タイムラインで作り直したい範囲の最初と最後のキーを選んで、AIナカワリの窓の「生成」を押します。結果が気に入らなければCtrl+Z 1回で生成の前に戻せます
+
+- 書き換えるのはボーンのキーだけです。表情・表示/IK・物理のキーはそのまま残ります
+- AIが書き換えたボーンのキーはMMD標準のベジェ補間になります(スプライン補間などMikuMikuDayo独自の補間は、AIが作り直した所では使われません)
+- VMDのコードページは932(日本語・既定)のままにしてください
+- 詳しい手順・困った時の対処・制限は、連携パッケージの`tool/ainakawari_dayolink/README.md`を参照してください
+
+</details>
+
 ## MikuMikuDayoのエフェクトについて
 
 <details>
@@ -668,8 +722,10 @@ Subayai-Lでは`renderer/Subayai-L/m/_template.txt`、BDPT-Lでは`renderer/BDPT
 
 ## 構築方法
 
+### MikuMikuDayo VR本体
+
 <details>
-<summary>ソースコードからビルドする方法と必要なライブラリ(本家MikuMikuDayoの手順)</summary>
+<summary>ソースコードからビルドする方法と必要なライブラリ</summary>
 
 `src`ディレクトリにソースコードが入っています  
 レンダラ自体のソースは`dayo.cpp`と`*dayo.h`です  
@@ -701,12 +757,31 @@ SimpleMath.cpp, SimleMath.h, d3dx12.hについてはDirectX12Tkから3つのフ�
 BulletPhysicsは付属のcmakeのオプションだとDirectXTex等と一緒に使えないライブラリが出力されるのでPMXLoader.ixxの先頭付近に書いてある方法を使ってビルドしています。詳しいニキはcmakeのオプションいじって解決するとコンパイルがちょっと早くなっていいかもね  
 
 OIDNについては上記リンクよりダウンロードしたoidn-(バージョン番号).x64.windows.zipを展開し、oidn.hppにインクルードパスを通し、OpenImageDenoise.libにライブラリパスを通せばOKです  
+【VR】実行時には、OIDNの`bin`フォルダにあるDLLを**すべて**`MikuMikuDayo.exe`と同じフォルダに置いてください。GPUごとのバックエンド(`OpenImageDenoise_device_cuda.dll`・`_hip.dll`・`_sycl.dll`)は実行時に読み込まれるため、欠けているとそのGPUではCPU実行になります  
 
 Cereal, ImGui, ImGuizmoのプロジェクトへの追加方法は各ドキュメントにある通り、プロジェクトのソースファイルに追加するだけです。ImGuiのbackendsにはimgui_impl_dx12とimgui_impl_win32を使ってください
 
 Jsonnetはvcpkgでインストールすると良いでしょう。[こちら](https://github.com/google/jsonnet/tree/master?tab=readme-ov-file#packages)に詳しく書いてあります
 
+
+AIナカワリ側に足す連携部品(DayoLink)・インストーラ・手引き・試験は`tool/ainakawari_dayolink`にあります。仕組みとコマンドの一覧は`tool/ainakawari_dayolink/README.md`を参照してください
+
 </details>
+
+### 【VR】Linux 用 OIDN サーバー
+
+<details>
+<summary>ソースコードからビルドする方法と必要なライブラリ</summary>
+
+- ソースは`tool/oidn_linux_server/src`にあります。使い方は同フォルダの`tool/oidn_linux_server/README.md`を参照してください
+- OIDNのLinux向けパッケージを公式サイトよりダウンロードし、glibc 環境でビルドしてください
+- 本体側の連携コードは`src/oidnBridgeDayo.h`です。`defsDayo.h`の`OIDN_LINUX_BRIDGE`を`FEATURE_DISABLE`にすると、連携コード(通信・共有メモリ)を exe から除外できます(その場合、Linux でのデノイズは CPU 実行になります)
+
+</details>
+
+
+</details>
+
 
 ## 付属のツールについて
 toolフォルダにツール類が付属しています。詳しくは当該フォルダの`readme.txt`をどうぞ
@@ -729,6 +804,8 @@ MITライセンスで公開されたソフトウェアであり、無保証・�
 MikuMikuDanceの作者 樋口様をはじめとする、MMD界隈の皆様に感謝いたします
 
 MikuMikuDayo VRの制作にあたっては、コードを公開してくださっている、MikuMikuDayoの作者 サンドマン様に感謝いたします
+
+AI連携にあたっては、AIナカワリ(MMD-AINakawari)を公開してくださっているBeamManP様と、Kimodo・MotionBricksを公開しているNVIDIAの皆様に感謝いたします
 
 構築方法の項にある通り、MikuMikuDayo VRは他にも幾つものOSSを利用して作られています。それらの作成・維持・管理に携わる皆様に感謝します
 
