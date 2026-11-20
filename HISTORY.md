@@ -1,4 +1,26 @@
 # 更新履歴
+### 2026-11-21
+
+Ver1.4.0-r261121 MikuMkuDayo VR
+
+　・NVIDIA以外のGPUでOIDNのデノイズが効いていなかった不具合を修正(OIDNのGPUデバイスを使えないGPUでは、CPUでデノイズします) 
+　　- AMD(HIP)・Intel(SYCL)のGPUで、GPUデノイズできるようになりました
+　　- 複数のGPUを搭載した環境で、GPU選択で選んだGPUでデノイズします  
+　　- yrz.logに、デノイズに使用しているデバイスの種類とGPU名を出力します  
+　・Linux + Proton 環境で、同封の「MikuMikuDayo OIDN サーバー(Linux用)」を起動しておくと、デノイズをGPUで実行するよう対応  
+　　- サーバーを起動していない場合や、GPUが対応していない場合は、従来どおりCPUでデノイズします  
+　　- GPUでデノイズしている間は、再生中・マウス操作中もデノイズを続けます  
+　　- サーバーのソースと配布物は tool/oidn_linux_server にあります  
+　・AIナカワリ(MMD-AINakawari)との連携に対応  
+　　- タイムラインで選んだキーの間のモーションを、AI(NVIDIA Kimodo・MotionBricks)に作らせることができます  
+　　- AIナカワリ 0.6.0 に連携部品(DayoLink)を足すパッケージと手引きを tool/ainakawari_dayolink に同梱しています  
+　　- AIが作ったキーは、Ctrl+Z 1回で生成の前に戻せます(書き換えるのはボーンのキーだけで、表情・表示/IK・物理のキーはそのまま)  
+　・MCP(開発中)のα版公開、受け口の通信処理を改修(64KBを超える要求・応答の分割受信、実行中の起動・停止)  
+　  
+　　※注意：AMDのGPUでデノイズするには、OIDNの`OpenImageDenoise_device_hip.dll`(リリースパッケージに同梱)と、AMD Software: Adrenalin Edition 25.30.02.01以降が必要です。  
+　　※既知の問題：Linux + Proton では BDPT / BDPT-L レンダラが起動できません(調査中)。  
+
+
 ### 2026-11-03
 
 Ver1.4.0-r261103 MikuMkuDayo VR
