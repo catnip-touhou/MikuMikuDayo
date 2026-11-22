@@ -50,8 +50,8 @@ MikuMikuDayoにVR180のレンダリング機能や動画出力機能を追加し
 ## 動作環境
 - Windows11　※ Linux + Protonでも動作します(下記の補足を参照)
 - DirectX raytracingのハードウェアサポートがあると、すべてのレンダラが使えます。具体的にはGeForceRTX2060以降です。
-- 【VR】HWレイトレーシングを持たないGPU(GeForce GTX 10/16シリーズなど)では、自動的にSモード(縮退モード)で起動し、Preview と Subayai-S が使えます。GeForce GTX 1050 Ti で動作を確認しています(下記の補足を参照)
-- 【VR】デノイズ(Intel OIDN)は、レンダリングに使用しているGPUで実行します(NVIDIA:CUDA、AMD:HIP、Intel:SYCL)。GPUがOIDNの対象外の場合はCPUで実行します。AMDのGPUでデノイズするには、AMD Software: Adrenalin Edition 25.30.02.01以降が必要です。
+- HWレイトレーシングを持たないGPU(GeForce GTX 10/16シリーズなど)では、自動的にSモード(縮退モード)で起動し、Preview と Subayai-S が使えます。(下記の補足を参照)
+- デノイズ(Intel OIDN)は、レンダリングに使用しているGPUで実行します(NVIDIA:CUDA、AMD:HIP、Intel:SYCL)。GPUがOIDNの対象外の場合はCPUで実行します。AMDのGPUでデノイズするには、AMD Software: Adrenalin Edition 25.30.02.01以降が必要です。
 
 <details>
 <summary><b>Sモード(縮退モード)についての補足</b></summary>
@@ -59,6 +59,7 @@ MikuMikuDayoにVR180のレンダリング機能や動画出力機能を追加し
 - 起動時にGPUを調べ、HWレイトレーシングのユニットを持つGPU(DirectX Raytracing Tier 1.1 以上を報告するGPU)があれば通常モード、無ければSモードで起動します
 - GeForce GTX 1060(6GB)以降のGTXシリーズはドライバによるレイトレーシング(Tier 1.0)に対応していますが、動作が非常に重いため、Sモードで起動します
 - Sモードでは、Rendererメニューに Preview / Subayai-S(/ ColorBar) だけが表示されます。タイトルバーに「[S mode]」と表示されます
+- Subayai-S レンダラは、レイトレーシングを使っていませんが、可能な限りオリジナルのSubayaiレンダラを再現できるように構築しています。
 - Subayai・BDPTなどで作ったプロジェクトをSモードで開くと、Subayai系はSubayai-Sに、それ以外はPreviewに読み替えて開きます(材質設定はSubayai-Sの同じ名前のファイルに付け替えます)
 - `config.json`の`renderMode`で起動モードを指定できます(主にテスト用)
   - `"auto"`(既定)：上記のとおり自動で決めます
