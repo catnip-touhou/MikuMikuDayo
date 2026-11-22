@@ -29,7 +29,7 @@ stateDiagram-v2
 
         Editing --> RecordingState : Recordボタン押下\n(AsyncSaver初期化 & フレーム開始位置へ移動)
         RecordingState --> Editing : 最終フレーム到達 / ESC中断\n(AsyncSaver.Finish & FFmpegクローズ)
-    end
+    }
 
     state "並列稼働サブシステム" as SubSystems {
         state "AI Link Server (TCP 127.0.0.1:9191)<br/>フレーム末尾で ProcessMCPCommands() 実行" as AILinkSub
