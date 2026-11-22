@@ -32,10 +32,9 @@ stateDiagram-v2
     end
 
     state "並列稼働サブシステム" as SubSystems {
-        AILinkSub : AI Link Server (TCP 127.0.0.1:9191)\nフレーム末尾で ProcessMCPCommands() 実行
+        state "AI Link Server (TCP 127.0.0.1:9191)<br/>フレーム末尾で ProcessMCPCommands() 実行" as AILinkSub
         state "FXWatcher ＆ FXShaderCache ホットリロード監視<br/>.fxdayo 本体および ＃include 先（.deps記録）の更新検知時に自動再コンパイル" as FXWatchSub
- 
-    end
+    }
 ```
 
 ### 2.1 起動時のGPU能力調査と起動モード決定フロー（`gpuModeDayo.h`）
