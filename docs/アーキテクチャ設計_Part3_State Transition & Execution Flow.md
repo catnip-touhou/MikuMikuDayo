@@ -12,7 +12,7 @@ MMDayoの実行状態は、起動時に一度だけ決定される起動モー�
 ```mermaid
 stateDiagram-v2
     [*] --> Startup : WinMain / Dayo2 起動
-    Startup --> GpuModeDecide : config.json 読込 ＆ Dayo::GpuMode::Decide()
+    Startup --> GpuModeDecide : config.json 読込 ＆ Dayo：：GpuMode：：Decide()
     GpuModeDecide --> Editing : DXR初期化 (!g_SMode) ＆ 初期プロジェクト構築完了\n(Normal Mode または S Mode [S mode] 確定)
 
     state "通常・再生・録画ステート" as MainStates {
