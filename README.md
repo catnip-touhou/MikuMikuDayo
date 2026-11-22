@@ -1,8 +1,11 @@
 # [MikuMikuDayo VR](https://github.com/catnip-touhou/MikuMikuDayo/tree/develop_vr)  
 本家MikuMikuDayoに対して、VR180形式のレンダリングと動画出力機能を追加したものです。通常動画のレンダリングと出力もできます。  
+また、HWレイトレーシングに対応していないGPUの場合でも動作します。
 - MikuMikuDayo VRのページは[こちら](https://github.com/catnip-touhou/MikuMikuDayo/tree/develop_vr)    
 - [Download(x64_win)](https://github.com/catnip-touhou/MikuMikuDayo/releases)
 
+![1](g/gamen.png)
+![2](g/MMDayo_S-Mode.png)
 
 MikuMikuDayo VRでの作例は以下の動画を見ていただけますと幸いです  
 [https://youtu.be/8hne-3m3Y_s](https://youtu.be/8hne-3m3Y_s)
@@ -32,8 +35,7 @@ __*(2025/02/16 追記) サンドマン氏がMikuMikuDayoバージョンβ2以降
 __*なのでMikuMikuDayoで動画を制作したい方は、サンドマン氏が公開しているMikuMikuDayoを使用することをお勧めします*__　
 
 
-![0](https://github.com/pennennennennennenem/MikuMikuDayo/assets/56704844/4900961c-f1a2-4fe2-978d-4e57b4b2a8b0)
-![1](https://github.com/user-attachments/assets/27c52ab9-57f3-49f3-8b87-21da726f8ef3)
+![3](https://github.com/user-attachments/assets/27c52ab9-57f3-49f3-8b87-21da726f8ef3)
 
 キャラクターのほかにステージを一つ読み込むことができ、それぞれにVMDファイルによるモーションを読み込むことができます(VPDには対応していません)  
 カメラモーションの読み込みにも対応しています（照明の読み込みには対応していません）  
