@@ -1,5 +1,5 @@
 # [MikuMikuDayo VR](https://github.com/catnip-touhou/MikuMikuDayo/tree/develop_vr)  
-本家MikuMikuDayoに対して、VR180動画形式のレンダリングと動画出力機能を追加したものです。通常動画形式のレンダリングもできます。  
+本家MikuMikuDayoに対して、VR180形式のレンダリングと動画出力機能を追加したものです。通常動画のレンダリングと出力もできます。  
 - MikuMikuDayo VRのページは[こちら](https://github.com/catnip-touhou/MikuMikuDayo/tree/develop_vr)    
 - [Download(x64_win)](https://github.com/catnip-touhou/MikuMikuDayo/releases)
 
