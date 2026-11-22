@@ -12,8 +12,8 @@ MMDayoの実行状態は、起動時に一度だけ決定される起動モー�
 ```mermaid
 stateDiagram-v2
     [*] --> Startup : WinMain / Dayo2 起動
-    Startup --> GpuModeDecide : config.json 読込 & Dayo::GpuMode::Decide()
-    GpuModeDecide --> Editing : DXR初期化 (!g_SMode) & 初期プロジェクト構築完了\n(Normal Mode または S Mode [S mode] 確定)
+    Startup --> GpuModeDecide : config.json 読込 ＆ Dayo::GpuMode::Decide()
+    GpuModeDecide --> Editing : DXR初期化 (!g_SMode) ＆ 初期プロジェクト構築完了\n(Normal Mode または S Mode [S mode] 確定)
 
     state "通常・再生・録画ステート" as MainStates {
         Editing : Editing (編集・静止画蓄積)\nAnimation = false, Recording = false
@@ -121,8 +121,8 @@ flowchart LR
 
     subgraph Step3["Step 3: Post-Physics (物理後ボーン・外部親解決)"]
         S3A["ダイナミック剛体結果を\n物理ボーンへ書き戻し"]
-        S3B["物理後ボーンのFK/IK・付与解決\n& 外部親(Exp)トランスフォーム適用"]
-        S3C["最終ボーン行列配列 (boneMat)\n& モーフ頂点オフセット確定"]
+        S3B["物理後ボーンのFK/IK・付与解決\n＆ 外部親(Exp)トランスフォーム適用"]
+        S3C["最終ボーン行列配列 (boneMat)\n＆ モーフ頂点オフセット確定"]
         S3A --> S3B --> S3C
     end
 
