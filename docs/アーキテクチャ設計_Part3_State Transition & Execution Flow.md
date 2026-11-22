@@ -33,7 +33,7 @@ stateDiagram-v2
 
     state "並列稼働サブシステム" as SubSystems {
         AILinkSub : AI Link Server (TCP 127.0.0.1:9191)\nフレーム末尾で ProcessMCPCommands() 実行
-        state "FXWatcher ＆ FXShaderCache ホットリロード監視\n.fxdayo 本体および #include 先 (.deps記録) の更新検知時に自動再コンパイル" as FXWatchSub
+        FXWatchSub : FXWatcher ＆ FXShaderCache ホットリロード監視\n.fxdayo 本体および ＃include 先（.deps記録）の更新検知時に自動再コンパイル 
     end
 ```
 
