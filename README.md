@@ -1,5 +1,5 @@
 # [MikuMikuDayo VR](https://github.com/catnip-touhou/MikuMikuDayo/tree/develop_vr)  
-VR180形式でレンダリングできる機能や動画出力機能を追加したものです。  
+本家MikuMikuDayoに対して、VR180動画形式のレンダリングと動画出力機能を追加でもたせたものです。通常動画形式のレンダリングもできます。  
 - MikuMikuDayo VRのページは[こちら](https://github.com/catnip-touhou/MikuMikuDayo/tree/develop_vr)    
 - [Download(x64_win)](https://github.com/catnip-touhou/MikuMikuDayo/releases)
 
@@ -9,7 +9,7 @@ MikuMikuDayo VRでの作例は以下の動画を見ていただけますと幸�
 
 [https://youtu.be/Hdz1w9bC6G4](https://youtu.be/Hdz1w9bC6G4)
 
-# [MikuMikuDayo 派生版](https://github.com/catnip-touhou/MikuMikuDayo)
+# [MikuMikuDayo 旧派生版(更新停止)](https://github.com/catnip-touhou/MikuMikuDayo)
 本家のMikuMikuDayoをお探しの方は
 [https://github.com/pennennennennennenem/MikuMikuDayo](https://github.com/pennennennennennenem/MikuMikuDayo)  
 
@@ -24,7 +24,7 @@ MITライセンスのオープンソースで公開されています
 [https://github.com/pennennennennennenem/MikuMikuDayo](https://github.com/pennennennennennenem/MikuMikuDayo)  
   
   
-本サイトで公開するMikuMikuDayoは、サンドマン氏の制作物(バージョンβ1)をもとに𝕔𝕒𝕥𝕟𝕚𝕡が、ひとまずキャラクター１体が踊るダンス動画を作れるように改修を加えたものです  
+本サイトで公開するMikuMikuDayo(旧派生版)は、サンドマン氏の制作物(バージョンβ1)をもとに𝕔𝕒𝕥𝕟𝕚𝕡が、ひとまずキャラクター１体が踊るダンス動画を作れるように改修を加えたものです  
 （𝕔𝕒𝕥𝕟𝕚𝕡が改修を加えたMikuMikuDayoもMITライセンスのオープンソースです）  
 
   
