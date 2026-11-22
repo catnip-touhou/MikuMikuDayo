@@ -1,4 +1,4 @@
-# MikuMikuDayo VR version 1.40-r261121
+# MikuMikuDayo VR version 1.40-r261122
 
 - **Windows Updateおよびグラフィックスカードのドライバは最新にしてください。「ちょっとくらい古くてもいいだろう」と思うかもしれませんが、レイトレーシングのドライバは意外とバグがまだ残っていて、ちょっとアップデートするだけでバグが治ってたりします。これまでのテストで得られた重要な知見ですからくれぐれもバグ報告などをする前にチェックしてください。**
 
@@ -10,7 +10,7 @@
 
 - [更新履歴](#更新履歴) … MikuMikuDayo VR / 本家MikuMikuDayo の更新履歴へのリンク
 - [概要](#概要) … MikuMikuDayo VRとは、VR版で追加された主な機能
-- [動作環境](#動作環境) … 必要なOS・GPU、DLSS/動画出力に関する補足
+- [動作環境](#動作環境) … 必要なOS・GPU、【VR】HWレイトレーシング非対応GPU向けのSモード、DLSS/動画出力に関する補足
 - [起動方法](#起動方法) … 起動とランタイム(DLL)の入手先
 - [操作方法](#操作方法) … ファイルの読み込み、各メニュー、各ウィンドウの使い方
 - [ポストプロセスとアップスケーラ](#ポストプロセスとアップスケーラ) … 【VR】ポストプロセスの実行順、FSR2/DLSS3.5の使い方、VR版で追加されたポストプロセス
@@ -41,6 +41,7 @@ MikuMikuDayoにVR180のレンダリング機能や動画出力機能を追加し
 - **FXLinker** 材質ごとにリムライトなどのエフェクトを割り当てられます(Effect Mappingウィンドウ)
 - **キーフレーム編集の強化** キーのドラッグ&ドロップ移動、物理ボーンの焼き込み
 - **AI連携** AIナカワリ(別配布)と連携して、キーとキーの間のモーションをAI(NVIDIA Kimodo・MotionBricks)に作らせることができます(既定はOFF。メニューバーの右端の「AI連携」スイッチ)
+- **Sモード(縮退モード)・Subayai-S** HWレイトレーシングを持たないGPU(GeForce GTX 10/16シリーズなど)でも起動でき、Subayai-S レンダラでPBRレンダリングができます(床の映り込み WorkingFloor にも対応)
 - **UIのスケーリング、GPU選択、リソースモニタ**
 - **Linux + Proton 対応**
 
@@ -48,8 +49,24 @@ MikuMikuDayoにVR180のレンダリング機能や動画出力機能を追加し
 
 ## 動作環境
 - Windows11　※ Linux + Protonでも動作します(下記の補足を参照)
-- DirectX raytracingのハードウェアサポートが必須です。具体的にNVIDIAではGeForceRTX2060以降です。Radeon+DXR環境でも動作しますが、検証が不足しています
-- デノイズ(Intel OIDN)について：GPU(NVIDIA:CUDA、AMD:HIP、Intel:SYCL)で実行できます。GPUがOIDNのサポート対象外の場合はCPUで実行します【VR】。
+- DirectX raytracingのハードウェアサポートがあると、すべてのレンダラが使えます。具体的にはGeForceRTX2060以降です。
+- 【VR】HWレイトレーシングを持たないGPU(GeForce GTX 10/16シリーズなど)では、自動的にSモード(縮退モード)で起動し、Preview と Subayai-S が使えます。GeForce GTX 1050 Ti で動作を確認しています(下記の補足を参照)
+- 【VR】デノイズ(Intel OIDN)は、レンダリングに使用しているGPUで実行します(NVIDIA:CUDA、AMD:HIP、Intel:SYCL)。GPUがOIDNの対象外の場合はCPUで実行します。AMDのGPUでデノイズするには、AMD Software: Adrenalin Edition 25.30.02.01以降が必要です。
+
+<details>
+<summary><b>Sモード(縮退モード)についての補足</b></summary>
+
+- 起動時にGPUを調べ、HWレイトレーシングのユニットを持つGPU(DirectX Raytracing Tier 1.1 以上を報告するGPU)があれば通常モード、無ければSモードで起動します
+- GeForce GTX 1060(6GB)以降のGTXシリーズはドライバによるレイトレーシング(Tier 1.0)に対応していますが、動作が非常に重いため、Sモードで起動します
+- Sモードでは、Rendererメニューに Preview / Subayai-S(/ ColorBar) だけが表示されます。タイトルバーに「[S mode]」と表示されます
+- Subayai・BDPTなどで作ったプロジェクトをSモードで開くと、Subayai系はSubayai-Sに、それ以外はPreviewに読み替えて開きます(材質設定はSubayai-Sの同じ名前のファイルに付け替えます)
+- `config.json`の`renderMode`で起動モードを指定できます(主にテスト用)
+  - `"auto"`(既定)：上記のとおり自動で決めます
+  - `"dxr"`：DirectX Raytracing を報告するGPUなら、GTXシリーズでも通常モードで起動します
+  - `"s"`：常にSモードで起動します(RTXシリーズでSモードの動作を確認したい場合など)
+- `yrz.log`に、各GPUのレイトレーシング対応状況と、決定した起動モードが`[GpuMode]`で始まる行で出力されます
+
+</details>
 
 <details>
 <summary><b>Linux + Proton での補足</b></summary>
@@ -142,14 +159,15 @@ MikuMikuDayoにVR180のレンダリング機能や動画出力機能を追加し
 </details>
 
 <details>
-<summary><b>Rendererメニュー</b> ― レンダラ(BDPT / BDPT-L / Subayai / Subayai-L / Preview / Preview-L)の選択</summary>
+<summary><b>Rendererメニュー</b> ― レンダラ(BDPT / BDPT-L / Subayai / Subayai-L / Subayai-S / Preview / Preview-L)の選択</summary>
 
-レンダラ(レンダリングに用いるエフェクト)を選択できます。レンダラ自体は各人で好きな実装を作って`renderer`フォルダに置くと使えるようになりますが、同梱のレンダラは以下の6つあります
+レンダラ(レンダリングに用いるエフェクト)を選択できます。レンダラ自体は各人で好きな実装を作って`renderer`フォルダに置くと使えるようになりますが、同梱のレンダラは以下の7つあります
 
 - **BDPT**<br>双方向モンテカルロパストレーシングを用いたレンダラです。動作が非常に重いですが高品質です
 - **BDPT-L**<br>BDPTに対してFidelityFX Super Resolution 2によるアップスケーリングを可能としたレンダラです（動画書き出し時にFSR2が有効であれば内部解像度を下げてレンダリングします）。DLSS3.5によるアップスケーリングにも対応しています
 - **Subayai**<br>ラスタライザベースで部分的にレイトレーシングを用いた表現力があり高速なレンダラです。動画の作成に役立ちます
 - **Subayai-L**<br>Subayaiに対して、発光体からの配光を実施するレイトレーシングを追加したレンダラです。やや重くなりますが、動画の作成に役立ちます。また、FidelityFX Super Resolution 2によるアップスケーリングが可能です（動画書き出し時にFSR2が有効であれば内部解像度を下げてレンダリングします）。DLSS3.5によるアップスケーリングにも対応しています<br>画面に映っている発光材質を仮想点光源(SS-VPL)として周囲を照らします。本家Subayaiの変更にも追従しています
+- **Subayai-S**<br>HWレイトレーシングを使わずにSubayaiを再現したレンダラです。HWレイトレーシングを持たないGPU向けのSモードで使えるほか、通常モードでも軽量版として選択できます。材質設定とコントローラはSubayaiと同じ書き方で使えます<br>平行光源の影はカスケードシャドウマップ、映り込みは画面に映っている物(SSR)と背景(Skybox)で表現します。床の材質に`renderer/Subayai-S/m/WorkingFloor.txt`を割り当てると、画面の外にある物も含めて床に映り込みます(平面反射)。ガラスの屈折や、画面の外にある物の映り込み(床を除く)はSubayaiより簡略化されます<br>品質は`renderer/Subayai-S.fxdayo`の`local QUALITY = "standard";`を`"light"`(軽量)・`"standard"`(標準)・`"high"`(高品質・動画書き出し向け)に書き換えて切り替えられます。また、同じファイルの`Options`で、床の映り込みの中のAO(`PLANAR_AO`)などの機能を個別に有効・無効にできます
 - **Preview**<br>MMD用モデルを表示・確認するための軽いレンダラです。ある程度本家MMDに寄せてはありますが、特に互換性は無いのでご注意ください。ソースコードがシンプルなのでレンダラを自作する時の参考にどうぞ
 - **Preview-L**<br>Previewに対して、FSR2/DLSS3.5によるアップスケーリングを可能としたレンダラです
 
@@ -158,6 +176,8 @@ MikuMikuDayoにVR180のレンダリング機能や動画出力機能を追加し
 BDPTを使う場合は、`postprocess/tonemapper/ACESTonemap.pmx`をドロップしてトーンマッパーを有効にしてください。また、`renderer/BDPT/dayorencon.pmx`もドロップすると露出補正や開口モーフによりDoF効果などの設定が行えます。
 
 同様に、Subayaiを使う場合は、`postprocess/tonemapper/ACESTonemap.pmx`をドロップしてトーンマッパーを有効にしてください。また、`renderer/Subayai/subayairencon.pmx`もドロップすると露出補正などの設定が行えます。DoFについては`postprocess/DoF`にある物を使ってください。
+
+Subayai-Sを使う場合も同様です。コントローラは`renderer/Subayai-S/subayairencon.pmx`・`renderer/Subayai-S/subalight.pmx`です(ファイル名がSubayaiと同じなので、Subayaiで作ったプロジェクトのコントローラとキーはそのまま使えます)。
 
 </details>
 
@@ -503,7 +523,7 @@ FSR2/DLSS3.5のアップスケーラを読み込んでいる場合は、録画�
 
 エフェクトによってはモデルの各材質単位でエフェクトに注釈データ(以下、材質注釈と呼びます)を付ける事が出来ます。(同梱のエフェクトとしてはβ3時点ではBDPTレンダラだけです)
 
-現在の同梱レンダラでは、BDPT / BDPT-L / Subayai / Subayai-L が材質注釈に対応しています
+現在の同梱レンダラでは、BDPT / BDPT-L / Subayai / Subayai-L / Subayai-S が材質注釈に対応しています
 
 材質名の右に材質注釈を書いたファイルを指定できるので、`renderer\m`フォルダ内にある材質注釈を設定出来ます。例えば金属的な質感にしたい場合は`metal.txt`を割り当てるとそのようになります
 
@@ -627,7 +647,7 @@ FSR2/DLSS3.5には、TAAと同じように前のフレームの映像を使っ�
 
 [AIナカワリ(MMD-AINakawari)](https://github.com/BeamManP/MMD-AINakawari)は、キーとキーの間をAI(NVIDIA Kimodo・MotionBricks)が作って埋めるツールです(別配布。MMD・MMM用)。付属の連携パッケージで連携部品(DayoLink)を足すと、MikuMikuDayoのタイムラインでも使えます
 
-1. AIナカワリ 0.6.0 の配布zip(`MMD-AINakawari-0.6.0.zip`)を落として、好きな場所に展開します(MMD・MMMは不要です)
+1. AIナカワリ 0.7.0(0.6.0も可)の配布zip(`MMD-AINakawari-0.7.0.zip`)を落として、好きな場所に展開します(MMD・MMMは不要です)
 2. 展開してできた`MMD-AINakawari`フォルダを、`tool\ainakawari_dayolink\install_dayolink.cmd`の上にドラッグ&ドロップします
 3. MikuMikuDayoの「AI連携」をONにしてから、`MMD-AINakawari\MMDayo-AINakawari.cmd`でAIナカワリの窓を開きます。初回だけ、窓の「セットアップ」でKimodo・MotionBricks(約12GB)を入れます
 4. モデルを選び、タイムラインで作り直したい範囲の最初と最後のキーを選んで、AIナカワリの窓の「生成」を押します。結果が気に入らなければCtrl+Z 1回で生成の前に戻せます
@@ -635,6 +655,7 @@ FSR2/DLSS3.5には、TAAと同じように前のフレームの映像を使っ�
 - 書き換えるのはボーンのキーだけです。表情・表示/IK・物理のキーはそのまま残ります
 - AIが書き換えたボーンのキーはMMD標準のベジェ補間になります(スプライン補間などMikuMikuDayo独自の補間は、AIが作り直した所では使われません)
 - VMDのコードページは932(日本語・既定)のままにしてください
+- AIナカワリ 0.7.0 が開く「外からの操作の口」(PCの中だけの名前付きパイプ。mmd-mcpなどから使う)は、AIナカワリ自身の物なので「AI連携」スイッチでは止まりません。スイッチがOFFなら、AIナカワリはMikuMikuDayoにつながらないため、外から操作されてもキーは書き換わりません
 - 詳しい手順・困った時の対処・制限は、連携パッケージの`tool/ainakawari_dayolink/README.md`を参照してください
 
 </details>
@@ -697,6 +718,10 @@ _Tテクスチャパラメータ名:ファイル名
 レンダラによって受付可能なパラメータは異なりますので、`renderer/BDPT/m/_template.txt`または`renderer/Subayai/m/_template.txt`を参考にしてください。BDPTとSubayaiでは共通するパラメータも多いですが完全な互換性があるわけではない事に注意してください。
 
 Subayai-Lでは`renderer/Subayai-L/m/_template.txt`、BDPT-Lでは`renderer/BDPT-L/m/_template.txt`を参考にしてください
+
+Subayai-Sでは`renderer/Subayai-S/m/_template.txt`を参考にしてください。Subayaiと同じパラメータに加えて、床の映り込み(平面反射)を指定する`WorkingFloor`が使えます
+
+3DCGや光の知識が無い方向けに、PBR(物理ベースレンダリング)の考え方と各パラメータの意味を噛み砕いて説明したガイドを用意しています：[Subayai材質設定ガイド はじめてのPBR](docs/Subayai材質設定ガイド_はじめてのPBR.md)
 
 </details>
 
@@ -823,6 +848,7 @@ AI連携にあたっては、AIナカワリ(MMD-AINakawari)を公開してくだ
 
 - **動かないんですけど**  
 DXR対応ビデオカードが無いと動かせないんですけど  
+【VR】HWレイトレーシングを持たないGPUでも、Sモード(縮退モード)で起動するようになりました。PreviewとSubayai-Sが使えます  
 
 - **DXR対応ビデオカードのはずなんですけど**  
 そんなら動くはずなんですけど、ヨソでテストはしてないんですけど  
