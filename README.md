@@ -57,6 +57,11 @@ AVIファイルへの出力ができます（透過AVIには対応していま�
 
 ## つくりかけです
 つくりかけですが、こちらの初期派生版は更新を停止しています  
+  
+本家のMikuMikuDayoをお探しの方は
+[https://github.com/pennennennennennenem/MikuMikuDayo](https://github.com/pennennennennennenem/MikuMikuDayo)  
+  
+新しい派生版であるMikuMikuDayo VRは[こちら](https://github.com/catnip-touhou/MikuMikuDayo/tree/develop_vr)  
 
 
 ## 起動方法
